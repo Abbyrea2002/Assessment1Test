@@ -10,9 +10,9 @@ public class BagSet<T> extends Bag<T> {
     // and make sure that any value is added at most once to a BagSet
     // HINT - use the superclass method addNewEntry() in your solution
     public boolean addNewEntry(T newEntry){
-
         if(!contains(newEntry)) return super.addNewEntry(newEntry);
-        else return false;
+        else
+            return false;
     }
 
 
@@ -52,12 +52,13 @@ public class BagSet<T> extends Bag<T> {
 
         // TO DO
         // Provide the body for this method
-        BagSet<T> resultSet = new BagSet();
-        T[] thisSet = this.toArray();
-        for(T element : thisSet)
-            if(anotherSet.contains(element)) resultSet.addNewEntry(element);
+        BagSet<T> resultBagSet = new BagSet<T>();
+        T[] thisBagSet = this.toArray();
 
-        return resultSet; // Change this line as required
+        for(T element : thisBagSet)
+            if(anotherSet.contains(element)) resultBagSet.addNewEntry(element);
+
+        return resultBagSet; // Change this line as required
     }
 
 
@@ -75,8 +76,8 @@ public class BagSet<T> extends Bag<T> {
 
         // TO DO
         // Provide the body for this method
-        BagSet<T> resultSet = new BagSet();
-        T[] thisSet = toArray();
+        BagSet<T> resultSet = new BagSet<T>();
+        T[] thisSet = this.toArray();
         for(T element : thisSet)
             if(!anotherBagSet.contains(element)) resultSet.addNewEntry(element);
         return resultSet; // Change this line as required
@@ -97,16 +98,13 @@ public class BagSet<T> extends Bag<T> {
 
         // TO DO
         // Provide the body for this method
-
         if(getCurrentSize() != anotherSet.getCurrentSize()) return false;
-        else {
-           T[] thisSet = toArray();
-           for(T element : thisSet)
-               if(!anotherSet.contains(element)) return false;
+        else{
+            T[] thisSet = toArray();
+            for(T element : thisSet)
+                if(!anotherSet.contains(element)) return false;
             return true;
         }
 
-
-        // Change this line as required
     }
 }
